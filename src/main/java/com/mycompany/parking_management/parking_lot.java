@@ -55,9 +55,10 @@ double entrance_price;
         this.last_entrance=new Entering(time,plate);
         occupied=true;
     }
-     void Exit(int time,String plate){
+     int Exit(int time,String plate){
         this.last_exit=new Exiting(time,plate);
         occupied=false;
         n_parked++;
+        return this.entrance_price*(last_exit.getTime()-last_entrance.getTime());
     }
 }

@@ -9,14 +9,14 @@ package com.mycompany.parking_management;
  * @author colombo.jordan
  */
 public class Exiting {
-     int time;
+    double time;
     String plate;
     
     public Exiting(int time, String plate) {
         this.time = time;
         this.plate = plate;
     }
-     public int getTime() {
+     public double getTime() {
         return time;
     }
 
