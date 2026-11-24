@@ -7,12 +7,12 @@ package com.mycompany.parking_management;
 
 public class parking_lot 
 {
-int number;
+private int number;
 char type;
-boolean occupied=false;
+private boolean occupied=false;
 Entering last_entrance;
 Exiting last_exit;
-int n_parked;
+private int n_parked;
 double entrance_price;
 
    
@@ -54,11 +54,17 @@ double entrance_price;
     void Enter(int time,String plate){
         this.last_entrance=new Entering(time,plate);
         occupied=true;
+        this.last_exit=null;
     }
-     int Exit(int time,String plate){
+    double Exit(int time,String plate)
+    {
+        double result=0;
         this.last_exit=new Exiting(time,plate);
         occupied=false;
         n_parked++;
-        return this.entrance_price*(last_exit.getTime()-last_entrance.getTime());
+        result=this.entrance_price*(last_exit.getTime()-last_entrance.getTime());
+        this.last_entrance=null; 
+        return result;
     }
+    
 }
